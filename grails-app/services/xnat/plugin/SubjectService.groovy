@@ -1,36 +1,18 @@
 package xnat.plugin
 
-import grails.transaction.Transactional
-
-@Transactional
 class SubjectService {
 
-    def serviceMethod() {
+	static transactional = false
 
-    }
+	String getXnatID(String subjectId) {
+		Subject.findByTransmartSubjectId(subjectId).xnatSubjectId
+	}
 
+	String getXnatProject(String subjectId) {
+		Subject.findByTransmartSubjectId(subjectId).xnatProject
+	}
 
-
-    def getXnatID(def subjectID)
-    {
-        def subject = Subject.findByTranSMART_subjectID(subjectID.toString());
-
-        return subject.xnat_subjectID;
-    }
-
-    def getXnatProject(def subjectID)
-    {
-        def subject = Subject.findByTranSMART_subjectID(subjectID.toString());
-
-
-        return subject.xnat_project;
-    }
-
-    def SubjectExists(def subjectID)
-    {
-        if (Subject.findByTranSMART_subjectIDIsNotNullAndTranSMART_subjectID(subjectID.toString()))
-            return true;
-        else
-            return false;
-    }
+	boolean subjectExists(String subjectId) {
+		Subject.countByTransmartSubjectIdIsNotNullAndTransmartSubjectId(subjectId)
+	}
 }

@@ -14,8 +14,6 @@ modules = {
     overrides {
         analyseTab {
             dependsOn 'xnat'
-
-            println("Configuring XNAT resources ...")
         }
     }
 }
