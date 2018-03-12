@@ -1,10 +1,11 @@
 package xnat.plugin
 
 import com.recomdata.export.ExportTableNew
-import org.transmart.searchapp.AccessLog
+import org.transmartproject.db.log.AccessLogService
 
 class TableController {
 
+	AccessLogService accessLogService
 	def i2b2HelperService
 	def springSecurityService
 	XnatHelperService xnatHelperService
@@ -15,10 +16,8 @@ class TableController {
 		boolean s1 = result_instance_id1
 		boolean s2 = result_instance_id2
 
-		new AccessLog(username: springSecurityService.principal.username,
-				event: 'DatasetExplorer-Grid Analysis Drag',
-				eventmessage: 'RID1:' + result_instance_id1 + ' RID2:' + result_instance_id2 + ' Concept:' + concept_key,
-				accesstime: new Date()).save()
+		accessLogService.report 'DatasetExplorer-Grid Analysis Drag',
+				'RID1:' + result_instance_id1 + ' RID2:' + result_instance_id2 + ' Concept:' + concept_key
 
 		//Copied from Grid view, but must not use the same table!
 		//XXX: session is a questionable place to store this because it breaks multi-window/tab nav
