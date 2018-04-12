@@ -8,7 +8,7 @@ grails.project.dependency.resolution = {
 	legacyResolve true
 
 	repositories {
-		mavenLocal() // Note: use 'grails maven-install' to install required plugins locally
+		mavenLocal()
 		grailsCentral()
 		mavenCentral()
 		mavenRepo 'http://ec2-35-170-59-132.compute-1.amazonaws.com:8080/artifactory/libs-snapshots'
@@ -23,6 +23,7 @@ grails.project.dependency.resolution = {
 		compile 'org.apache.httpcomponents:httpcore:4.4.1'
 		compile 'org.apache.httpcomponents:httpcore:4.4.1'
 		compile 'org.transmartproject:transmart-core-api:18.1-SNAPSHOT'
+		test 'org.grails:grails-datastore-test-support:1.0.2-grails-2.4'
 	}
 
 	plugins {

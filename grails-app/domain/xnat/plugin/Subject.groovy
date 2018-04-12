@@ -12,6 +12,8 @@ class Subject implements Serializable {
 
 	List<Session> sessions = []
 
+	static transients = ['sessions']
+
 	static mapping = {
 		table 'SEARCHAPP.XNAT_SUBJECT'
 		id generator: 'increment'
