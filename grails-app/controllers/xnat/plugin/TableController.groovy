@@ -7,7 +7,6 @@ class TableController {
 
 	AccessLogService accessLogService
 	def i2b2HelperService
-	def springSecurityService
 	XnatHelperService xnatHelperService
 
 	def analysisGrid(String concept_key, String result_instance_id1, String result_instance_id2) {
