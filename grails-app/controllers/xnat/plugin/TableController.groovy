@@ -20,7 +20,7 @@ class TableController {
 
 		//Copied from Grid view, but must not use the same table!
 		//XXX: session is a questionable place to store this because it breaks multi-window/tab nav
-		//ExportTableNew table = (ExportTableNew) request.getSession().getAttribute('gridtable')
+		//ExportTableNew table = (ExportTableNew) session.gridtable
 		ExportTableNew table = new ExportTableNew()
 		if (s1) {
 			xnatHelperService.addAllPatientDemographicDataForSubsetToTable(table, result_instance_id1, 'subset1')
