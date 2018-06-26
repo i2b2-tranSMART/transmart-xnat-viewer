@@ -644,6 +644,11 @@ var EWB = {
 
 jQuery(document).ready(function () {
 
+	if (!GLOBAL.xnatEnabled) {
+		console.log("XNAT Plugin is not enabled")
+		return
+	}
+
 	console.log("XNAT Plugin Present")
 
 	if (!window.btoa || window.btoa(":") != "Og==") {
